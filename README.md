@@ -7,14 +7,16 @@ KerasHub HRM-Text port:
   verification artifact: weight conversion, full-logit parity, and cached
   PrefixLM generation.
 - [`hrm_text_1b_usage.ipynb`](hrm_text_1b_usage.ipynb) is a practical
-  user-facing introduction: conversion, prompt construction, generation, and
-  PrefixLM training inputs.
+  user-facing introduction: conversion, recommended prompt modes, configurable
+  generation, complete continuation-only answers, and PrefixLM training inputs.
 
 ## Run in Colab
 
 Open either notebook in Google Colab, select a GPU runtime, and run all cells.
-A T4 is sufficient for their short validation and generation sequences. The
-implementation is currently under review, so both notebooks convert the
+A T4 is sufficient. The verification sequence is short; the usage notebook's
+paragraph-length examples take roughly one to one-and-a-half minutes each on a
+T4 because every generated token traverses 128 logical recurrent cache slots.
+The implementation is currently under review, so both notebooks convert the
 official checkpoint locally instead of relying on a hosted Keras preset.
 
 The notebook checks out the exact KerasHub implementation commit
