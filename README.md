@@ -1,16 +1,24 @@
 # HRM-Text-1B KerasHub evidence
 
-This repository contains the reproducible numerical-verification notebook for
-the proposed KerasHub HRM-Text port.
+This repository contains two reproducible Colab notebooks for the proposed
+KerasHub HRM-Text port:
+
+- [`hrm_text_1b_colab.ipynb`](hrm_text_1b_colab.ipynb) is the numerical
+  verification artifact: weight conversion, full-logit parity, and cached
+  PrefixLM generation.
+- [`hrm_text_1b_usage.ipynb`](hrm_text_1b_usage.ipynb) is a practical
+  user-facing introduction: conversion, prompt construction, generation, and
+  PrefixLM training inputs.
 
 ## Run in Colab
 
-Open [`hrm_text_1b_colab.ipynb`](hrm_text_1b_colab.ipynb) in Google Colab,
-select a GPU runtime, and run all cells. A T4 is sufficient for the short
-validation sequence.
+Open either notebook in Google Colab, select a GPU runtime, and run all cells.
+A T4 is sufficient for their short validation and generation sequences. The
+implementation is currently under review, so both notebooks convert the
+official checkpoint locally instead of relying on a hosted Keras preset.
 
 The notebook checks out the exact KerasHub implementation commit
-`91475efb2401642073e84e39cc3dc7090b8b19db`, pins the official Apache-2.0
+`5ff84000167698f0c412fb9cb8121c878e932749`, pins the official Apache-2.0
 `sapientinc/HRM-Text-1B` checkpoint revision
 `9f082d68b8cd0ebc56e33f1c88c45609174c272c`, and then:
 
